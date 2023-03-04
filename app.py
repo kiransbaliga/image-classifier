@@ -43,6 +43,7 @@ MODEL_PATH = 'models/your_model.h5'
 
 
 def model_predict(img, model):
+    print("here")
     img = img.resize((224, 224))
 
     # Preprocessing the image
@@ -53,8 +54,9 @@ def model_predict(img, model):
     # Be careful how your trained model deals with the input
     # otherwise, it won't make correct prediction!
     x = preprocess_input(x, mode='tf')
-
+    print(x.shape)
     preds = model.predict(x)
+    print(preds)
     return preds
 
 
@@ -74,8 +76,9 @@ def predict():
         # img.save("./uploads/image.png")
 
         # Make prediction
+        print("Working here")
         preds = model_predict(img, model)
-
+        print("Working here 2")
         # Process your result for human
         pred_proba = "{:.3f}".format(np.amax(preds))    # Max probability
         pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
