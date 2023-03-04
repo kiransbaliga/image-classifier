@@ -5,4 +5,4 @@ Pillow
 tensorflow-cpu
 Werkzeug
 Gunicorn
-protobuf
+protobuf==3.20.*
